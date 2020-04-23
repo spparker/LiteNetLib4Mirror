@@ -34,8 +34,8 @@ With IL2CPP, IPv6 is only supported on Unity 2018.3.6f1 and later because of thi
 Also, socket Reuse Address option isn't available in IL2CPP.   
 
 # Credits
-RevenantX - for [LiteNetLib  ](https://github.com/RevenantX/LiteNetLib/releases)
-vis2k & Paul - for [Mirror](https://assetstore.unity.com/packages/tools/network/mirror-129321)
+RevenantX - for [LiteNetLib  ](https://github.com/RevenantX/LiteNetLib/releases)  
+vis2k & Paul - for [Mirror](https://assetstore.unity.com/packages/tools/network/mirror-129321)  
 Coburn - for [Ignorance](https://github.com/SoftwareGuy/Ignorance) which i've used as an example  
 Dankrushen - for helping me find one small mistake which i couldn't find for two days  
 Lucas Ontivero - for [Open.Nat](https://github.com/lontivero/Open.NAT/releases), used for UPnP  
