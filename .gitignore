@@ -54,3 +54,5 @@ LiteNetLib4Mirror/crashlytics-build.properties
 /.vs/slnx.sqlite
 *.sqlite-journal
 *.sqlite~Stashed changes
+/.vs/ProjectSettings.json
+/.vs

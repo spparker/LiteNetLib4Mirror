@@ -15,8 +15,6 @@ namespace Mirror.LiteNetLib4Mirror
 		{
 			GetComponent<LiteNetLib4MirrorTransport>().InitializeTransport();
 			base.Awake();
-			singleton = this;
-			NetworkManager.singleton = this;
 		}
 
 		/// <summary>
@@ -87,7 +85,7 @@ namespace Mirror.LiteNetLib4Mirror
 #if DISABLE_IPV6
 		public bool StartServer(string serverIPv4BindAddress, ushort port, ushort maxPlayers)
 #else
-		public bool StartServer(string serverIPv4BindAddress, string serverIPv6BindAddress, ushort port, ushort maxPlayers)
+		public void StartServer(string serverIPv4BindAddress, string serverIPv6BindAddress, ushort port, ushort maxPlayers)
 #endif
 		{
 			networkAddress = serverIPv4BindAddress;
@@ -99,7 +97,7 @@ namespace Mirror.LiteNetLib4Mirror
 #endif
 			LiteNetLib4MirrorTransport.Singleton.port = port;
 			LiteNetLib4MirrorTransport.Singleton.maxConnections = maxPlayers;
-			return StartServer();
+			StartServer();
 		}
 
 		/// <summary>
@@ -126,7 +124,7 @@ namespace Mirror.LiteNetLib4Mirror
 		/// </summary>
 		/// <param name="port">Port</param>
 		/// <param name="maxPlayers">Connection limit</param>
-		public bool StartServer(ushort port, ushort maxPlayers)
+		public void StartServer(ushort port, ushort maxPlayers)
 		{
 			networkAddress = "127.0.0.1";
 			maxConnections = maxPlayers;
@@ -136,14 +134,13 @@ namespace Mirror.LiteNetLib4Mirror
 #endif
 			LiteNetLib4MirrorTransport.Singleton.port = port;
 			LiteNetLib4MirrorTransport.Singleton.maxConnections = maxPlayers;
-			return StartServer();
+			StartServer();
 		}
 
 		public void DisconnectConnection(NetworkConnection conn, string message = null)
 		{
 			LiteNetLib4MirrorServer.DisconnectMessage = message;
 			conn.Disconnect();
-			conn.Dispose();
 			LiteNetLib4MirrorServer.DisconnectMessage = null;
 		}
 	}
