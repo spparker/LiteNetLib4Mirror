@@ -1,17 +1,15 @@
 # LiteNetLib4Mirror
 LiteNetLib based transport for Mirror.  
 
-# Usage
+## Usage
 1. Download the unity package from [Releases](https://github.com/MrGadget1024/LiteNetLib4Mirror/releases) and import it to your project (it does not contain Mirror)  
 2. Put LiteNetLib4MirrorTransport component on gameobject with NetworkManager and assign it there  
 3. (Optional) Make your NetworkManager derrive from LiteNetLib4MirrorNetworkManager and use optional overloads from it  
 
-# Features
+## Features
 - UDP  
 - Built-in Network Discovery and UPnP  
 - Fully managed code  
-
-# Also, since it's using LiteNetLib, it also supports it's following features:  
 - Small CPU and RAM usage  
 - Small packet size overhead ( 1 byte for unreliable, 3 bytes for reliable packets )  
 - Different send mechanics  
@@ -28,12 +26,12 @@ LiteNetLib based transport for Mirror.
 - Connection statisitcs (need DEBUG or STATS_ENABLED flag)  
 - Multicasting (for discovering hosts in local network)  
 
-# IL2CPP Warning!
+## IL2CPP Warning!
 With IL2CPP, IPv6 is only supported on Unity 2018.3.6f1 and later because of this:  
 ![Unity ChangeLog](unity2018.3.6f1il2cpp.png)   
 Also, socket Reuse Address option isn't available in IL2CPP.   
 
-# Credits
+## Credits
 RevenantX - for [LiteNetLib  ](https://github.com/RevenantX/LiteNetLib/releases)  
 vis2k & Paul - for [Mirror](https://assetstore.unity.com/packages/tools/network/mirror-129321)  
 Coburn - for [Ignorance](https://github.com/SoftwareGuy/Ignorance) which i've used as an example  
