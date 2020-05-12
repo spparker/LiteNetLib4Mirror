@@ -2,7 +2,7 @@
 LiteNetLib based transport for Mirror.  
 
 # Usage
-1. Download the unity packge from [Releases](https://github.com/MrGadget1024/LiteNetLib4Mirror/releases) and import it to your project (it does not contain Mirror)  
+1. Download the unity package from [Releases](https://github.com/MrGadget1024/LiteNetLib4Mirror/releases) and import it to your project (it does not contain Mirror)  
 2. Put LiteNetLib4MirrorTransport component on gameobject with NetworkManager and assign it there  
 3. (Optional) Make your NetworkManager derrive from LiteNetLib4MirrorNetworkManager and use optional overloads from it  
 
@@ -30,7 +30,7 @@ LiteNetLib based transport for Mirror.
 
 # IL2CPP Warning!
 With IL2CPP, IPv6 is only supported on Unity 2018.3.6f1 and later because of this:  
-![alt text](unity2018.3.6f1il2cpp.png)   
+![Unity ChangeLog](unity2018.3.6f1il2cpp.png)   
 Also, socket Reuse Address option isn't available in IL2CPP.   
 
 # Credits
