@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Mirror.LiteNetLib4Mirror
 {
-	public class LiteNetLib4MirrorTransport : Transport, ISegmentTransport
+	public class LiteNetLib4MirrorTransport : Transport
 	{
 		public static LiteNetLib4MirrorTransport Singleton;
 
@@ -223,10 +223,10 @@ namespace Mirror.LiteNetLib4Mirror
 			LiteNetLib4MirrorClient.ConnectClient(ConnectWriter);
 		}
 
-		public override bool ClientSend(int channelId, ArraySegment<byte> data)
+		public override void ClientSend(int channelId, ArraySegment<byte> data)
 		{
 			byte channel = (byte)(channelId < channels.Length ? channelId : 0);
-			return LiteNetLib4MirrorClient.Send(channels[0], data.Array, data.Offset, data.Count, channel);
+			LiteNetLib4MirrorClient.Send(channels[0], data.Array, data.Offset, data.Count, channel);
 		}
 
 		public override void ClientDisconnect()
@@ -247,7 +247,7 @@ namespace Mirror.LiteNetLib4Mirror
 			LiteNetLib4MirrorServer.StartServer(GetConnectKey());
 		}
 
-		public override bool ServerSend(List<int> connectionIds, int channelId, ArraySegment<byte> data)
+		/*public override bool ServerSend(List<int> connectionIds, int channelId, ArraySegment<byte> data)
 		{
 			byte channel = (byte)(channelId < channels.Length ? channelId : 0);
 			bool success = true;
@@ -256,12 +256,12 @@ namespace Mirror.LiteNetLib4Mirror
 				success &= LiteNetLib4MirrorServer.Send(id, channels[0], data.Array, data.Offset, data.Count, channel);
 			}
 			return success;
-		}
+		}*/
 
-		public bool ServerSend(int connectionId, int channelId, ArraySegment<byte> data)
+		public override void ServerSend(int connectionId, int channelId, ArraySegment<byte> data)
 		{
 			byte channel = (byte)(channelId < channels.Length ? channelId : 0);
-			return LiteNetLib4MirrorServer.Send(connectionId, channels[0], data.Array, data.Offset, data.Count, channel);
+			LiteNetLib4MirrorServer.Send(connectionId, channels[0], data.Array, data.Offset, data.Count, channel);
 		}
 
 		public override bool ServerDisconnect(int connectionId)
